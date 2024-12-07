@@ -2,7 +2,9 @@ package net.bl4st.elytradrag.mixin;
 
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.ElytraEntityModel;
+import net.minecraft.client.render.entity.state.BipedEntityRenderState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,15 +26,16 @@ public class ElytraDragAnimation {
      * Scuffed way to handle some kind of animation,
      * it just works™
      */
-
-    @Inject(method = "setAngles", at = @At("TAIL"))
-    private void SetAngles(LivingEntity livingEntity, float f, float g, float h, float i, float j, CallbackInfo ci) {
-        if (!livingEntity.isSneaking() || !livingEntity.isGliding())
+    @Shadow
+    public Vec3d getVelocity() {}
+    @Inject(method = "setAngles(Lnet/minecraft/client/render/entity/state/BipedEntityRenderState;)V", at = @At("TAIL"))
+    private void SetAngles(BipedEntityRenderState bipedEntityRenderState, CallbackInfo ci) {
+        if (!bipedEntityRenderState.isInSneakingPose || !bipedEntityRenderState.isGliding)
             return;
         long FLAPPING_SPEED = 3L;
         float progressCycle = (float)(System.currentTimeMillis() * FLAPPING_SPEED % 1000L) / 1000.0F;
         float progress = ((float)Math.sin(progressCycle * Math.PI * 2.0D) + 1.0F) / 2.0F;
-        float animSpeedCoef = GetSpeedAnimationCoef((float)livingEntity.getVelocity().length() * 20.0F);
+        float animSpeedCoef = GetSpeedAnimationCoef((float)LivingEntity.getVelocity().length() * 20.0F);
         this.rightWing.yaw = -1.5f * animSpeedCoef;
         this.leftWing.yaw = 1.5f * animSpeedCoef;
         this.rightWing.pitch = progress * (1f - animSpeedCoef);
