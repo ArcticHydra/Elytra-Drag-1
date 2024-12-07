@@ -3,7 +3,11 @@ package net.bl4st.elytradrag.mixin;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.ElytraEntityModel;
 import net.minecraft.client.render.entity.state.BipedEntityRenderState;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Arm;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,10 +22,20 @@ public class ElytraDragAnimation {
     @Final
     @Shadow
     private ModelPart rightWing;
-
+    @Unique
+    LivingEntity spe;
     @Final
     @Shadow
     private ModelPart leftWing;
+    @Unique
+    float playerVelocity;
+    @Unique
+    float playerSpeed = playerVelocity * 20.0f;
+
+    public ElytraDragAnimation() {
+        playerVelocity = (float) spe.getVelocity().length();
+    }
+
     /**
      * Scuffed way to handle some kind of animation,
      * it just works™
@@ -33,7 +47,7 @@ public class ElytraDragAnimation {
         long FLAPPING_SPEED = 3L;
         float progressCycle = (float)(System.currentTimeMillis() * FLAPPING_SPEED % 1000L) / 1000.0F;
         float progress = ((float)Math.sin(progressCycle * Math.PI * 2.0D) + 1.0F) / 2.0F;
-        float animSpeedCoef = GetSpeedAnimationCoef((float)LivingEntity.getVelocity().length() * 20.0F);
+        float animSpeedCoef = GetSpeedAnimationCoef((float)playerSpeed * 20.0F);
         this.rightWing.yaw = -1.5f * animSpeedCoef;
         this.leftWing.yaw = 1.5f * animSpeedCoef;
         this.rightWing.pitch = progress * (1f - animSpeedCoef);
