@@ -3,16 +3,21 @@ package net.bl4st.elytradrag.mixin;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.ElytraEntityModel;
 import net.minecraft.entity.LivingEntity;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 @Mixin(ElytraEntityModel.class)
 public class ElytraDragAnimation {
+    @Final
     @Shadow
     private ModelPart rightWing;
 
+    @Final
     @Shadow
     private ModelPart leftWing;
     /**
@@ -37,6 +42,7 @@ public class ElytraDragAnimation {
         this.leftWing.roll = -1f;
     }
 
+    @Unique
     private float GetSpeedAnimationCoef(float value) {
         value = Math.max(2.0F, Math.min(45.0F, value));
         return (float)Math.pow(((value - 2.0F) / 45.0F), 0.25D);
