@@ -23,7 +23,7 @@ public class ElytraDrag implements ModInitializer {
 
 		for (ServerPlayerEntity spe : playerList)
 		{
-			if(spe.isFallFlying() && spe.isSneaking())
+			if(spe.isGliding() && spe.isSneaking())
 			{
 				spe.getJumpBoostVelocityModifier();
 				var playerVelocity = spe.getVelocity();
