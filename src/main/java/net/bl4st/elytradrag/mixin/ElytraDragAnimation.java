@@ -26,8 +26,6 @@ public class ElytraDragAnimation {
      * Scuffed way to handle some kind of animation,
      * it just works™
      */
-    @Shadow
-    public Vec3d getVelocity() {}
     @Inject(method = "setAngles(Lnet/minecraft/client/render/entity/state/BipedEntityRenderState;)V", at = @At("TAIL"))
     private void SetAngles(BipedEntityRenderState bipedEntityRenderState, CallbackInfo ci) {
         if (!bipedEntityRenderState.isInSneakingPose || !bipedEntityRenderState.isGliding)
