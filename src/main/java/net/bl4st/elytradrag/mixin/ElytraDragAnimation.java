@@ -47,7 +47,7 @@ public class ElytraDragAnimation {
         long FLAPPING_SPEED = 3L;
         float progressCycle = (float)(System.currentTimeMillis() * FLAPPING_SPEED % 1000L) / 1000.0F;
         float progress = ((float)Math.sin(progressCycle * Math.PI * 2.0D) + 1.0F) / 2.0F;
-        float animSpeedCoef = GetSpeedAnimationCoef((float)playerSpeed * 20.0F);
+        float animSpeedCoef = GetSpeedAnimationCoef(playerSpeed * 20.0F);
         this.rightWing.yaw = -1.5f * animSpeedCoef;
         this.leftWing.yaw = 1.5f * animSpeedCoef;
         this.rightWing.pitch = progress * (1f - animSpeedCoef);
