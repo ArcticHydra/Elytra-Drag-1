@@ -5,7 +5,8 @@
 	"name": "Elytra Drag",
 	"description": "Press the sneak key while flying with elytras to slow down",
 	"authors": [
-		"bl4st"
+		"ArduFish",
+		"bl4st (original creator)"
 	],
 	"contact": {
 		"homepage": "https://twitter.com/Hardcore_c4sual",
