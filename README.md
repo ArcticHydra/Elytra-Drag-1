@@ -1,9 +1,7 @@
-A Simple Mod adding QoL to Elytra flight
+A fork of the [Elytra Drag](https://modrinth.com/mod/elytra-drag) mod by bl4st. I made this fork because the mod updates slowly and I also wanted to add some features to it.
 
-• Slow down when flying with elytras by pressing the Sneak key. This also stops any active rocket propusion active.
+- You can slow down (apply drag) by pressing the Shift key. This also stops any currently used firework rocket.
+- If you are slowing down your fall damage will be capped at a configurable amount.
+- The wing animation is changed when applying drag.
 
-• Adds a cap for the fallDistance to limit the amount of damage taken during high-velocity landings if the player is applying drag
-
-• The drag coeficient, the fallDistance cap and the minimum speed required to apply drag can be modified through the config file.
-
-*This is my first mod i have no idea what i am doing but it just works™*
+The mod is server-side only, but it can be installed on the client for the wing animation.
