@@ -1,4 +1,4 @@
-package net.bl4st.config;
+package net.ardufish.config;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

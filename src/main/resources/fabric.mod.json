@@ -17,7 +17,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.bl4st.elytradrag.ElytraDrag"
+			"net.ardufish.elytradrag.ElytraDrag"
 		]
 	},
 	"mixins": [

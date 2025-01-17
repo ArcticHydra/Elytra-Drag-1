@@ -1,4 +1,4 @@
-package net.bl4st.elytradrag.mixin;
+package net.ardufish.elytradrag.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
