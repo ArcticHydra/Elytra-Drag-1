@@ -1,31 +1,31 @@
 {
-	"schemaVersion": 1,
-	"id": "elytra-drag",
-	"version": "${version}",
-	"name": "Elytra Drag",
-	"description": "Press the sneak key while flying with elytras to slow down",
-	"authors": [
-		"bl4st"
-	],
-	"contact": {
-		"homepage": "https://twitter.com/Hardcore_c4sual",
-		"sources": "https://github.com/bl4sterino/Elytra-Drag"
-	},
-	"license": "MIT",
-	"icon": "assets/elytradrag/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.bl4st.elytradrag.ElytraDrag"
-		]
-	},
-	"mixins": [
-		"elytradrag.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "1.21.5",
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "elytra-drag",
+  "version": "${version}",
+  "name": "Elytra Drag",
+  "description": "Press the sneak key while flying with elytras to slow down",
+  "authors": [
+    "bl4st"
+  ],
+  "contact": {
+    "homepage": "https://twitter.com/Hardcore_c4sual",
+    "sources": "https://github.com/bl4sterino/Elytra-Drag"
+  },
+  "license": "MIT",
+  "icon": "assets/elytradrag/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.bl4st.elytradrag.ElytraDrag"
+    ]
+  },
+  "mixins": [
+    "elytradrag.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": ">=1.21.8 <1.22",
+    "java": ">=21",
+    "fabric": "*"
+  }
 }
